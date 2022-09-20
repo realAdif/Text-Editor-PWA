@@ -17,7 +17,7 @@ export const putDb = async (content) => {
   console.log('Post to the database');
 
   const todosDb = await openDB('jate',1);
-  const tx = todosDb.tramsaction('jate','readwrite');
+  const tx = todosDb.transaction('jate','readwrite');
   const store = tx.objectStore('jate');
   const request = store.add({jate: content});
 
@@ -31,7 +31,7 @@ export const getDb = async () => {
   console.log('GET all from the database');
 
   const todosDb = await openDB('jate', 1);
-  const tx = todosDb.tramsaction('jate','readonly');
+  const tx = todosDb.transaction('jate','readonly');
   const store = tx.objectStore('jate');
   const request = store.getAll();
 
